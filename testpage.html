@@ -1,45 +1,11 @@
-<html>
-<body>
-
-<script type="text/javascript" src="https://raw.github.com/mozilla/pdf.js/gh-pages/build/pdf.js"></script>
-<script type="text/javascript">
-function renderPDF(url, canvasContainer, options) {
-
-    var options = options || { scale: 1 };
-        
-    function renderPage(page) {
-        var viewport = page.getViewport(options.scale);
-        var canvas = document.createElement('canvas');
-        var ctx = canvas.getContext('2d');
-        var renderContext = {
-          canvasContext: ctx,
-          viewport: viewport
-        };
-        
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        canvasContainer.appendChild(canvas);
-        
-        page.render(renderContext);
-    }
-    
-    function renderPages(pdfDoc) {
-        for(var num = 1; num <= pdfDoc.numPages; num++)
-            pdfDoc.getPage(num).then(renderPage);
-    }
-
-    PDFJS.disableWorker = true;
-    PDFJS.getDocument(url).then(renderPages);
-
-}   
-</script> 
-
-<div id="holder"></div>
-
-<script type="text/javascript">
-renderPDF('https://amandaroberts.me/Amanda%20Roberts%20Resume.pdf', document.getElementById('holder'));
-</script>  
-
-</body>
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Amand Roberts Resume</title>
+    </head>
+    <body>
+        <iframe src="https://docs.google.com/gview?url=https://amandaroberts.me/Amanda%20Roberts%20Resume.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
+        If you are not redirected automatically, follow this <a href='https://amandaroberts.me/Amanda%20Roberts%20Resume.pdf'>link to my latest resume</a>.
+    </body>
 </html>
